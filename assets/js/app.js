@@ -35,6 +35,9 @@
 
   var dict = window.I18N;
   var lang = "de";
+  /* two page designs share this script: index.html (old) and new.html (new) */
+  var DESIGN = document.documentElement.getAttribute("data-design") || "old";
+  var PAGES = { old: "./", "new": "new.html" };
 
   /* ---------- helpers ---------- */
   function t(key) {
@@ -48,6 +51,7 @@
   /* ---------- tracking (GoatCounter, cookieless) ---------- */
   var queue = [];
   function track(path) {
+    if (path.indexOf(DESIGN + "/") !== 0) path = DESIGN + "/" + path;
     var gc = window.goatcounter;
     if (gc && typeof gc.count === "function") {
       try { gc.count({ path: path, title: path, event: true }); } catch (e) { /* ignore */ }
@@ -107,10 +111,33 @@
   }
 
   /* ---------- bikes ---------- */
+  function orderedBikes(box) {
+    var order = box && box.getAttribute("data-order");
+    if (!order) return BIKES;
+    return order.split(",").map(function (id) {
+      return BIKES.filter(function (b) { return b.id === id.trim(); })[0];
+    }).filter(Boolean);
+  }
+
+  function renderBikesNew(box) {
+    box.innerHTML = orderedBikes(box).map(function (b) {
+      var year = b.year === "custom" ? t("n.custom") : b.year;
+      return '<article class="bike" data-bike="' + b.id + '">' +
+        '<figure class="bike-photo"><img src="' + esc(b.img) + '" alt="' + esc(t("bike." + b.id + ".alt")) + '" loading="lazy" width="1200" height="900">' +
+          '<span class="pill">' + esc(t("bike.example")) + "</span></figure>" +
+        '<div class="bike-head"><h3>' + esc(t("bike." + b.id + ".short")) + '</h3><span class="bike-year">' + esc(year) + "</span></div>" +
+        '<p class="muted">' + esc(t("n.bike." + b.id)) + "</p>" +
+        '<ul class="chips"><li>' + esc(t(b.specs.engine)) + "</li><li>" + esc(t(b.specs.power)) + "</li><li>" + esc(t("terms.licence")) + "</li></ul>" +
+        '<a class="link-cta" href="#anfrage" data-pick="' + b.id + '">' + esc(t("bike.cta")) + "</a>" +
+        "</article>";
+    }).join("");
+  }
+
   function renderBikes() {
     var box = $("#bikes");
     if (!box) return;
-    box.innerHTML = BIKES.map(function (b) {
+    if (DESIGN === "new") { renderBikesNew(box); return; }
+    box.innerHTML = orderedBikes(box).map(function (b) {
       var name = t("bike." + b.id + ".name");
       var year = b.year === "custom" ? t("bike.t100.year") : t("bike.built") + " " + b.year;
       var photo = b.img
@@ -155,9 +182,22 @@
     else sel.selectedIndex = 1; /* default: next month */
   }
 
+  function setupDates() {
+    var from = $("#f-from"), to = $("#f-to");
+    if (!from || !to) return;
+    var d = new Date();
+    var today = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    from.min = today; to.min = today;
+    from.addEventListener("change", function () {
+      to.min = from.value || today;
+      if (to.value && from.value && to.value < from.value) to.value = from.value;
+    });
+  }
+
   function renderHero() {
-    var b = BIKES.filter(function (x) { return x.id === HERO_BIKE; })[0];
     var img = $("#hero-img");
+    var heroId = (img && img.getAttribute("data-bike")) || HERO_BIKE;
+    var b = BIKES.filter(function (x) { return x.id === heroId; })[0];
     if (!img || !b) return;
     if (b.img) {
       if (b.remote) img.setAttribute("data-fallback", b.remote);
@@ -190,7 +230,22 @@
   }, true);
 
   /* ---------- clicks ---------- */
+  function switchDesign(to) {
+    try { localStorage.setItem("bcb-design", to); } catch (err) { /* ignore */ }
+    track("design/" + to);
+    var p = new URLSearchParams(location.search);
+    p.delete("design");
+    p.set("lang", lang);
+    setTimeout(function () { location.href = PAGES[to] + "?" + p.toString() + location.hash; }, 120);
+  }
+
   document.addEventListener("click", function (e) {
+    var sw = e.target.closest("[data-design-to]");
+    if (sw) {
+      var to = sw.getAttribute("data-design-to");
+      if (to !== DESIGN) switchDesign(to);
+      return;
+    }
     var langBtn = e.target.closest(".langs button");
     if (langBtn) {
       var l = langBtn.getAttribute("data-lang");
@@ -251,22 +306,29 @@
       }
 
       var fd = new FormData(form);
-      var bike = fd.get("bike");
-      var duration = fd.get("duration");
+      var bike = fd.get("bike") || "any";
+      var duration = fd.get("duration") || "";
+      var from = fd.get("from") || "", to = fd.get("to") || "";
+      if (from && to && to < from) {
+        status.className = "status full err";
+        status.textContent = t("form.badDates");
+        $("#f-to").focus();
+        return;
+      }
       var bikeName = bike === "any" ? t("form.anyBike") : t("bike." + bike + ".name");
+      var when = duration
+        ? dict.de["form.d" + duration.charAt(0).toUpperCase() + duration.slice(1)] + " / " + fd.get("month")
+        : (from || "?") + " – " + (to || "?");
       var payload = {
         access_key: WEB3FORMS_KEY,
-        subject: "Anfrage: " + (bike === "any" ? "egal" : dict.de["bike." + bike + ".name"]) + " / " + dict.de["form.d" + duration.charAt(0).toUpperCase() + duration.slice(1)] + " / " + fd.get("month"),
+        subject: "Anfrage: " + (bike === "any" ? "egal" : dict.de["bike." + bike + ".name"]) + " / " + when,
         from_name: "Berlin Classic Bikes Website",
         name: fd.get("name"),
         email: fd.get("email"),
-        phone: fd.get("phone") || "",
         bike: bikeName,
-        duration: duration,
-        month: fd.get("month"),
-        days: fd.get("days") || "",
         message: fd.get("message") || "",
         language: lang,
+        design: DESIGN,
         utm_source: source.utm_source,
         utm_medium: source.utm_medium,
         utm_campaign: source.utm_campaign,
@@ -274,6 +336,9 @@
         referrer: source.referrer,
         botcheck: form.elements.botcheck.checked
       };
+      ["phone", "duration", "month", "days", "from", "to"].forEach(function (k) {
+        if (form.elements[k]) payload[k] = fd.get(k) || "";
+      });
 
       var btn = $("#f-submit");
       btn.disabled = true;
@@ -287,7 +352,7 @@
         .then(function (r) { return r.json().catch(function () { return { success: false }; }); })
         .then(function (res) {
           if (!res || !res.success) throw new Error((res && res.message) || "failed");
-          track("form/sent/" + bike + "/" + duration);
+          track("form/sent/" + bike + "/" + (duration || "dates"));
           var box = $("#form-box");
           box.innerHTML = '<div class="form-done" tabindex="-1"><h3>' + esc(t("form.doneH")) + "</h3><p>" + esc(t("form.doneP")) + "</p></div>";
           box.firstChild.focus();
@@ -303,6 +368,8 @@
   }
 
   /* ---------- go ---------- */
+  setupDates();
   applyLang(pickLang());
   track("lang-auto/" + lang);
+  $all("[data-design-to]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-design-to") === DESIGN)); });
 })();

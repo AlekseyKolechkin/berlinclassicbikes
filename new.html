@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de" data-design="new">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* remember the chosen design; ?design=old|new overrides */
+(function(){try{var p=new URLSearchParams(location.search),q=p.get("design");if(q==="new"||q==="old")localStorage.setItem("bcb-design",q);var d=q||localStorage.getItem("bcb-design");if(d==="old"){p.delete("design");var s=p.toString();location.replace("./"+(s?"?"+s:"")+location.hash);}}catch(e){}})();</script>
+<title>Berlin Classic Bikes – Klassische Motorräder mieten in Berlin</title>
+<meta name="description" content="Moto Guzzi V7 Special (1971), BMW R100 RS (1984) und Triumph Bonneville T100 Custom mieten in Berlin. Ganzjährig, Übergabe in Berlin-Spandau. Jetzt unverbindlich anfragen.">
+<link rel="canonical" href="https://berlinclassicbikes.de/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/new.css">
+<link rel="stylesheet" href="assets/css/switch.css">
+<meta property="og:title" content="Berlin Classic Bikes">
+<meta property="og:description" content="Klassische Motorräder mieten in Berlin, das ganze Jahr.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body>
+<a class="skip" href="#anfrage" data-i18n="skip">Zur Anfrage springen</a>
+<div class="design-switch" role="group" aria-labelledby="ds-label">
+  <span id="ds-label" data-i18n="design.label">Design</span>
+  <button type="button" data-design-to="old" data-i18n="design.old">Alt</button>
+  <button type="button" data-design-to="new" data-i18n="design.new">Neu</button>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="3"/><path d="M14 2v9M14 17v9M2 14h9M17 14h9"/></svg>
+      <span>Berlin Classic Bikes</span>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <a href="#maschinen" data-i18n="n.nav.bikes">Motorräder</a>
+      <a href="#preise" data-i18n="n.nav.prices">Preise</a>
+      <a href="#ablauf" data-i18n="n.nav.how">So funktioniert’s</a>
+      <div class="langs" role="group" aria-label="Sprache / Language">
+        <button type="button" data-lang="de" lang="de">DE</button>
+        <button type="button" data-lang="en" lang="en">EN</button>
+        <button type="button" data-lang="ru" lang="ru">RU</button>
+        <button type="button" data-lang="uk" lang="uk">UA</button>
+        <button type="button" data-lang="tr" lang="tr">TR</button>
+      </div>
+      <a class="btn-pill small" href="#anfrage" data-track="cta/nav" data-i18n="n.cta">Termin anfragen</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section id="top" class="wrap hero">
+    <div class="hero-text">
+      <p class="eyebrow" data-i18n="n.eyebrow">Klassik-Motorradverleih · Berlin</p>
+      <h1 class="display"><span data-i18n="n.hero.l1">Mit Klassikern</span> <span data-i18n="n.hero.l2">durch Berlin.</span></h1>
+      <p class="lead" data-i18n="n.hero.lead">Drei klassische Motorräder: Moto Guzzi von 1971, BMW von 1984 und ein Triumph-Umbau. Persönliche Übergabe, fahrbereit, das ganze Jahr.</p>
+      <div class="ctas">
+        <a class="btn-pill" href="#anfrage" data-track="cta/hero" data-i18n="n.cta">Termin anfragen</a>
+        <a class="btn-ghost" href="#maschinen" data-track="cta/see" data-i18n="n.see">Motorräder ansehen</a>
+      </div>
+      <dl class="stats">
+        <div><dt data-i18n="n.stat.bikes">klassische Motorräder</dt><dd>3</dd></div>
+        <div><dt data-i18n="n.stat.priceNote">pro weiteren Tag</dt><dd data-i18n="n.stat.price">ab 89 €</dd></div>
+        <div><dt data-i18n="n.stat.days">Tage im Jahr</dt><dd>365</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-photo">
+      <img id="hero-img" data-bike="v7" hidden alt="" width="1280" height="853" fetchpriority="high">
+      <span class="pill" data-i18n="bike.example">Beispielfoto</span>
+    </figure>
+  </section>
+
+  <section id="maschinen" class="garage" data-view="bikes">
+    <div class="wrap">
+      <div class="sec-top">
+        <h2 class="display" data-i18n="n.garage.h">Die Garage</h2>
+        <p class="muted" data-i18n="n.garage.p">Jede Maschine wird vor jeder Fahrt gewartet und geprüft. Wählen Sie eine aus oder fragen Sie, welche zu Ihrer Tour passt.</p>
+      </div>
+      <div class="bikes" id="bikes" data-order="t100,r100rs,v7"><!-- filled by app.js --></div>
+    </div>
+  </section>
+
+  <section id="preise" class="wrap prices" data-view="prices">
+    <h2 class="display" data-i18n="n.prices.h">Einfache Preise</h2>
+    <dl class="tariffs">
+      <div class="tariff"><dt data-i18n="prices.first">Erster Tag</dt><dd class="amount">129 €</dd><dd class="note" data-i18n="n.prices.firstNote">24 Stunden, jede Maschine</dd></div>
+      <div class="tariff"><dt data-i18n="prices.next">Jeder weitere Tag</dt><dd class="amount">89 €</dd><dd class="note" data-i18n="n.prices.nextNote">für längere Touren</dd></div>
+      <div class="tariff highlight"><dt data-i18n="prices.weekend">Wochenende</dt><dd class="amount">179 €</dd><dd class="note" data-i18n="prices.weekendNote">Freitag 17 Uhr bis Montag 10 Uhr</dd></div>
+    </dl>
+    <ul class="terms">
+      <li data-i18n="terms.licence">Führerschein Klasse A</li>
+      <li data-i18n="terms.age">Mindestalter 23 Jahre</li>
+      <li data-i18n="terms.deposit">Kaution bei Übergabe</li>
+      <li data-i18n="terms.pickup">Übergabe und Rückgabe in Berlin-Spandau</li>
+    </ul>
+  </section>
+
+  <section id="ablauf" class="how" data-view="how">
+    <div class="wrap">
+      <h2 class="display" data-i18n="n.how.h">So funktioniert’s</h2>
+      <ol class="steps">
+        <li><h3 data-i18n="n.how.1h">Termin anfragen</h3><p data-i18n="n.how.1p">Wählen Sie unten Maschine und Termin. Sie bekommen innerhalb von 48 Stunden eine Antwort.</p></li>
+        <li><h3 data-i18n="n.how.2h">Treffen in Spandau</h3><p data-i18n="n.how.2p">Persönliche Übergabe mit kurzer Einweisung: die Maschine, ihre Eigenheiten und die Papiere.</p></li>
+        <li><h3 data-i18n="n.how.3h">Losfahren</h3><p data-i18n="n.how.3p">Seen im Havelland, Landstraßen in Brandenburg oder einfach Kreuzberg bei Nacht. Zurückbringen, fertig.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="anfrage" class="wrap request" data-view="form">
+    <div class="request-intro">
+      <h2 class="display" data-i18n="n.cta">Termin anfragen</h2>
+      <p class="muted" data-i18n="n.req.p">Jetzt ist nichts zu bezahlen. Schicken Sie Ihre Wunschtermine, wir bestätigen die Verfügbarkeit persönlich.</p>
+    </div>
+    <div id="form-box">
+      <form id="lead-form" class="lead-form" novalidate>
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="field" for="f-name"><span data-i18n="form.name">Name</span>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </label>
+        <label class="field" for="f-email"><span data-i18n="form.email">E-Mail</span>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </label>
+        <label class="field" for="f-from"><span data-i18n="form.from">Von</span>
+          <input id="f-from" name="from" type="date">
+        </label>
+        <label class="field" for="f-to"><span data-i18n="form.to">Bis</span>
+          <input id="f-to" name="to" type="date">
+        </label>
+        <label class="field full" for="f-bike"><span data-i18n="form.bike">Maschine</span>
+          <select id="f-bike" name="bike">
+            <option value="t100" data-i18n="bike.t100.name">Triumph Bonneville T100 Custom</option>
+            <option value="r100rs" data-i18n="bike.r100rs.name">BMW R100 RS</option>
+            <option value="v7" data-i18n="bike.v7.name">Moto Guzzi V7 Special</option>
+            <option value="any" data-i18n="form.anyBike">Noch unentschieden</option>
+          </select>
+        </label>
+        <label class="field full" for="f-msg"><span><span data-i18n="form.msg">Nachricht</span> <span data-i18n="form.optional">(optional)</span></span>
+          <textarea id="f-msg" name="message" rows="4" data-i18n-placeholder="form.msgPh" placeholder="Zum Beispiel: Fotoshooting, Tour nach Potsdam, Ihre Erfahrung mit alten Maschinen"></textarea>
+        </label>
+        <label class="consent full">
+          <input type="checkbox" name="consent" id="f-consent" required>
+          <span data-i18n-html="form.consent">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen. Meine Angaben dürfen zur Beantwortung dieser Anfrage verarbeitet werden.</span>
+        </label>
+        <div class="submit-row full">
+          <button class="btn-pill" type="submit" id="f-submit" data-i18n="form.submit">Anfrage senden</button>
+          <span class="note" data-i18n="n.req.note">Führerschein A · ab 23 · Kaution bei Übergabe</span>
+        </div>
+        <p class="status full" id="f-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Berlin Classic Bikes · <span data-i18n="n.foot.place">Berlin-Spandau</span></span>
+    <nav aria-label="Rechtliches">
+      <a href="impressum.html" data-i18n="foot.imprint">Impressum</a>
+      <a href="datenschutz.html" data-i18n="foot.privacy">Datenschutz</a>
+    </nav>
+    <div class="credits" id="bildnachweise"><strong data-i18n="foot.credits">Bildnachweise</strong><div id="credits"></div></div>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+<script data-goatcounter="https://berlinclassicbikes.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

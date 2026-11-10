@@ -1,0 +1,15 @@
+/* Design switch: a slim bar at the very top of both pages (index.html = old, new.html = new). */
+.design-switch {
+  display: flex; justify-content: center; align-items: center; gap: 4px;
+  padding: 5px 16px; background: #1a1c1b; color: #efebe3;
+  font: 500 13px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.design-switch span { margin-right: 8px; opacity: .7; }
+.design-switch button {
+  font: inherit; color: inherit; background: none; border: 0; cursor: pointer;
+  padding: 7px 14px; border-radius: 999px; min-height: 30px;
+}
+.design-switch button:hover { background: rgba(255, 255, 255, .14); }
+.design-switch button[aria-pressed="true"] { background: #efebe3; color: #1a1c1b; font-weight: 700; }
+.design-switch button:focus-visible { outline: 3px solid #d9a066; outline-offset: 2px; }
+@media print { .design-switch { display: none; } }
