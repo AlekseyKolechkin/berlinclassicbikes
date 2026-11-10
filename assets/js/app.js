@@ -35,9 +35,9 @@
 
   var dict = window.I18N;
   var lang = "de";
-  /* two page designs share this script: index.html (old) and new.html (new) */
-  var DESIGN = document.documentElement.getAttribute("data-design") || "old";
-  var PAGES = { old: "./", "new": "new.html" };
+  /* three page designs share this script: index.html (A), b.html (B), c.html (C) */
+  var DESIGN = document.documentElement.getAttribute("data-design") || "a";
+  var PAGES = { a: "./", b: "b.html", c: "c.html" };
 
   /* ---------- helpers ---------- */
   function t(key) {
@@ -133,10 +133,29 @@
     }).join("");
   }
 
+  var PLATE = { t100: "100", r100rs: "84", v7: "71" };
+  function renderBikesC(box) {
+    box.innerHTML = orderedBikes(box).map(function (b) {
+      var year = b.year === "custom" ? t("n.custom") : b.year;
+      var rows = [["c.year", year], ["spec.label.engine", t(b.specs.engine)], ["spec.label.power", t(b.specs.power)], ["spec.label.licence", "A"]];
+      return '<article class="machine" data-bike="' + b.id + '">' +
+        '<div class="plate-col"><div class="plate" aria-hidden="true">' + PLATE[b.id] + '</div>' +
+          '<span class="origin">' + esc(t("c.origin." + b.id)) + "</span></div>" +
+        '<div class="machine-text"><h3>' + esc(t("bike." + b.id + ".name")) + "</h3>" +
+          '<p class="blurb">' + esc(t("n.bike." + b.id)) + "</p>" +
+          '<dl class="specs">' + rows.map(function (r) { return "<div><dt>" + esc(t(r[0])) + "</dt><dd>" + esc(r[1]) + "</dd></div>"; }).join("") + "</dl>" +
+          '<a class="mono-link" href="#anfrage" data-pick="' + b.id + '">' + esc(t("bike.cta")) + ' <span aria-hidden="true">→</span></a></div>' +
+        '<figure class="machine-photo"><img src="' + esc(b.img) + '" alt="' + esc(t("bike." + b.id + ".alt")) + '" loading="lazy" width="1200" height="900">' +
+          '<span class="tag">' + esc(t("bike.example")) + "</span></figure>" +
+        "</article>";
+    }).join("");
+  }
+
   function renderBikes() {
     var box = $("#bikes");
     if (!box) return;
-    if (DESIGN === "new") { renderBikesNew(box); return; }
+    if (DESIGN === "b") { renderBikesNew(box); return; }
+    if (DESIGN === "c") { renderBikesC(box); return; }
     box.innerHTML = orderedBikes(box).map(function (b) {
       var name = t("bike." + b.id + ".name");
       var year = b.year === "custom" ? t("bike.t100.year") : t("bike.built") + " " + b.year;
@@ -259,6 +278,8 @@
       var id = pick.getAttribute("data-pick");
       var sel = $("#f-bike");
       if (sel) sel.value = id;
+      var radio = $('input[name="bike"][value="' + id + '"]');
+      if (radio) radio.checked = true;
       track("cta/bike/" + id);
       return;
     }
@@ -341,6 +362,7 @@
       });
 
       var btn = $("#f-submit");
+      var btnLabel = btn.innerHTML;
       btn.disabled = true;
       btn.textContent = t("form.sending");
 
@@ -360,7 +382,7 @@
         .catch(function () {
           track("form/error");
           btn.disabled = false;
-          btn.textContent = t("form.submit");
+          btn.innerHTML = btnLabel;
           status.className = "status full err";
           status.innerHTML = t("form.error");
         });

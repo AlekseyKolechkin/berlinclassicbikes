@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de" data-design="old">
+<html lang="de" data-design="a">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>/* remember the chosen design; ?design=old|new overrides */
-(function(){try{var p=new URLSearchParams(location.search),q=p.get("design");if(q==="new"||q==="old")localStorage.setItem("bcb-design",q);var d=q||localStorage.getItem("bcb-design");if(d==="new"){p.delete("design");var s=p.toString();location.replace("new.html"+(s?"?"+s:"")+location.hash);}}catch(e){}})();</script>
+<script>/* design variants A/B/C: remember the choice; ?design=a|b|c overrides */
+(function(){try{var P={a:"./",b:"b.html",c:"c.html"},M={old:"a","new":"b"},h=document.documentElement.getAttribute("data-design"),p=new URLSearchParams(location.search),q=(p.get("design")||"").toLowerCase();q=M[q]||q;if(P[q])localStorage.setItem("bcb-design",q);var s=localStorage.getItem("bcb-design"),d=P[q]?q:(M[s]||s);if(P[d]&&d!==h){p.delete("design");var x=p.toString();location.replace(P[d]+(x?"?"+x:"")+location.hash);}}catch(e){}})();</script>
 <title>Berlin Classic Bikes – Klassische Motorräder mieten in Berlin</title>
 <meta name="description" content="Moto Guzzi V7 Special (1971), BMW R100 RS (1984) und Triumph Bonneville T100 Custom mieten in Berlin. Ganzjährig, Übergabe in Berlin-Spandau. Jetzt unverbindlich anfragen.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -19,8 +19,9 @@
 <a class="skip" href="#anfrage" data-i18n="skip">Zur Anfrage springen</a>
 <div class="design-switch" role="group" aria-labelledby="ds-label">
   <span id="ds-label" data-i18n="design.label">Design</span>
-  <button type="button" data-design-to="old" data-i18n="design.old">Alt</button>
-  <button type="button" data-design-to="new" data-i18n="design.new">Neu</button>
+  <button type="button" data-design-to="a">A</button>
+  <button type="button" data-design-to="b">B</button>
+  <button type="button" data-design-to="c">C</button>
 </div>
 
 <header class="wrap top">

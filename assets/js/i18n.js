@@ -402,7 +402,7 @@ window.I18N = (function () {
   /* ---------- texts for the new design (new.html) and the design switch ---------- */
   var EXTRA = {
     de: {
-      "design.label": "Design", "design.old": "Alt", "design.new": "Neu",
+      "design.label": "Design",
       "bike.t100.short": "Triumph T100", "bike.r100rs.short": "BMW R100 RS", "bike.v7.short": "Moto Guzzi V7",
       "n.custom": "Custom",
       "n.nav.bikes": "Motorräder", "n.nav.prices": "Preise", "n.nav.how": "So funktioniert’s",
@@ -427,7 +427,7 @@ window.I18N = (function () {
       "n.foot.place": "Berlin-Spandau"
     },
     en: {
-      "design.label": "Design", "design.old": "Old", "design.new": "New",
+      "design.label": "Design",
       "bike.t100.short": "Triumph T100", "bike.r100rs.short": "BMW R100 RS", "bike.v7.short": "Moto Guzzi V7",
       "n.custom": "Custom",
       "n.nav.bikes": "Bikes", "n.nav.prices": "Prices", "n.nav.how": "How it works",
@@ -452,7 +452,7 @@ window.I18N = (function () {
       "n.foot.place": "Berlin-Spandau"
     },
     ru: {
-      "design.label": "Дизайн", "design.old": "Старый", "design.new": "Новый",
+      "design.label": "Дизайн",
       "bike.t100.short": "Triumph T100", "bike.r100rs.short": "BMW R100 RS", "bike.v7.short": "Moto Guzzi V7",
       "n.custom": "Кастом",
       "n.nav.bikes": "Мотоциклы", "n.nav.prices": "Цены", "n.nav.how": "Как это работает",
@@ -477,7 +477,7 @@ window.I18N = (function () {
       "n.foot.place": "Берлин-Шпандау"
     },
     uk: {
-      "design.label": "Дизайн", "design.old": "Старий", "design.new": "Новий",
+      "design.label": "Дизайн",
       "bike.t100.short": "Triumph T100", "bike.r100rs.short": "BMW R100 RS", "bike.v7.short": "Moto Guzzi V7",
       "n.custom": "Кастом",
       "n.nav.bikes": "Мотоцикли", "n.nav.prices": "Ціни", "n.nav.how": "Як це працює",
@@ -502,7 +502,7 @@ window.I18N = (function () {
       "n.foot.place": "Берлін-Шпандау"
     },
     tr: {
-      "design.label": "Tasarım", "design.old": "Eski", "design.new": "Yeni",
+      "design.label": "Tasarım",
       "bike.t100.short": "Triumph T100", "bike.r100rs.short": "BMW R100 RS", "bike.v7.short": "Moto Guzzi V7",
       "n.custom": "Özel yapım",
       "n.nav.bikes": "Motosikletler", "n.nav.prices": "Fiyatlar", "n.nav.how": "Nasıl çalışır",
@@ -527,6 +527,119 @@ window.I18N = (function () {
       "n.foot.place": "Berlin-Spandau"
     }
   };
+
+
+  /* ---------- texts for variant C (c.html) ---------- */
+  var EXTRA_C = {
+    de: {
+      "c.issue": "Nr. 01 — Seit 2026",
+      "c.nav.garage": "Die Garage", "c.nav.tariff": "Tarif", "c.nav.route": "Die Route",
+      "c.ride": "Fahrt anfragen", "c.reserve": "Maschine anfragen",
+      "c.h1": "Klassiker", "c.sub1": "Motorräder", "c.sub2": "zum Mieten, Berlin.",
+      "c.lead": "Drei Maschinen mit echtem Charakter: ein englischer Twin, ein deutscher Boxer, ein italienischer V2. Keine Roller, kein Mietflotten-Plastik. Persönliche Übergabe, jeden Monat im Jahr.",
+      "c.garage.cap": "3 Maschinen · 3 Länder · vor jeder Fahrt gewartet",
+      "c.origin.t100": "England · Einzelstück", "c.origin.r100rs": "Deutschland · 1984", "c.origin.v7": "Italien · 1971",
+      "c.year": "Baujahr",
+      "c.tariff.h": "Tarif", "c.tariff.cap": "Jede Maschine · ganzjährig",
+      "c.h24": "24 Std.", "c.weekendShort": "Fr 17 – Mo 10 Uhr",
+      "c.st.licence": "Führerschein A", "c.st.age": "Ab 23 Jahren",
+      "c.route.h": "Die Route",
+      "c.r1h": "Schein abschicken", "c.r1p": "Maschine und Termin wählen. Persönliche Antwort innerhalb von 48 Stunden.",
+      "c.r2h": "Der Hof in Spandau", "c.r2p": "Übergabe durch den Besitzer: Choke, Benzinhahn und die Eigenheiten, die jede alte Maschine hat.",
+      "c.r3h": "Die offene Straße", "c.r3p": "Havelseen, Brandenburger Kopfsteinpflaster oder Berlin bei Nacht.",
+      "c.slip.h": "Anfrageschein", "c.slip.cap": "Jetzt keine Zahlung · Nr. ______",
+      "c.rider": "Name des Fahrers", "c.where": "Wohin geht die Fahrt?",
+      "c.send": "Schein abschicken",
+      "c.foot": "Berlin-Spandau · ganzjährig geöffnet"
+    },
+    en: {
+      "c.issue": "No. 01 — Est. 2026",
+      "c.nav.garage": "The garage", "c.nav.tariff": "Tariff", "c.nav.route": "The route",
+      "c.ride": "Request a ride", "c.reserve": "Request a bike",
+      "c.h1": "Classic", "c.sub1": "motorcycles", "c.sub2": "for hire, Berlin.",
+      "c.lead": "Three machines with real character: an English twin, a German boxer, an Italian V. No scooters, no rental-fleet plastic. Handed over in person, every month of the year.",
+      "c.garage.cap": "3 machines · 3 countries · serviced before every ride",
+      "c.origin.t100": "England · custom build", "c.origin.r100rs": "Germany · 1984", "c.origin.v7": "Italy · 1971",
+      "c.year": "Year",
+      "c.tariff.h": "Tariff", "c.tariff.cap": "Any bike · valid all year",
+      "c.h24": "24 h", "c.weekendShort": "Fri 5 pm – Mon 10 am",
+      "c.st.licence": "Licence A", "c.st.age": "Age 23+",
+      "c.route.h": "The route",
+      "c.r1h": "Send the slip", "c.r1p": "Pick a machine and your dates. A personal reply within 48 hours.",
+      "c.r2h": "The courtyard, Spandau", "c.r2p": "Handover by the owner: choke, petcock, the quirks every old bike has.",
+      "c.r3h": "The open road", "c.r3p": "Havel lakes, Brandenburg cobbles, or Berlin after dark.",
+      "c.slip.h": "Request slip", "c.slip.cap": "No payment now · No. ______",
+      "c.rider": "Rider’s name", "c.where": "Where are you riding?",
+      "c.send": "Send the slip",
+      "c.foot": "Berlin-Spandau · open all year"
+    },
+    ru: {
+      "c.issue": "№ 01 — с 2026",
+      "c.nav.garage": "Гараж", "c.nav.tariff": "Тариф", "c.nav.route": "Маршрут",
+      "c.ride": "Запросить поездку", "c.reserve": "Запросить мотоцикл",
+      "c.h1": "Классика", "c.sub1": "мотоциклы", "c.sub2": "напрокат, Берлин.",
+      "c.lead": "Три мотоцикла с настоящим характером: английский твин, немецкий оппозитник и итальянский V-твин. Никаких скутеров и пластика из прокатных парков. Передаём лично, в любой месяц года.",
+      "c.garage.cap": "3 мотоцикла · 3 страны · обслуживаем перед каждой поездкой",
+      "c.origin.t100": "Англия · кастом", "c.origin.r100rs": "Германия · 1984", "c.origin.v7": "Италия · 1971",
+      "c.year": "Год",
+      "c.tariff.h": "Тариф", "c.tariff.cap": "Любой мотоцикл · весь год",
+      "c.h24": "24 ч", "c.weekendShort": "пт 17:00 – пн 10:00",
+      "c.st.licence": "Права A", "c.st.age": "От 23 лет",
+      "c.route.h": "Маршрут",
+      "c.r1h": "Отправьте заявку", "c.r1p": "Выберите мотоцикл и даты. Лично ответим в течение 48 часов.",
+      "c.r2h": "Двор в Шпандау", "c.r2p": "Передаёт сам владелец: подсос, бензокран и привычки, которые есть у каждого старого мотоцикла.",
+      "c.r3h": "Дорога", "c.r3p": "Озёра на Хафеле, брусчатка Бранденбурга или ночной Берлин.",
+      "c.slip.h": "Бланк заявки", "c.slip.cap": "Без оплаты сейчас · № ______",
+      "c.rider": "Ваше имя", "c.where": "Куда поедете?",
+      "c.send": "Отправить заявку",
+      "c.foot": "Берлин-Шпандау · работаем круглый год"
+    },
+    uk: {
+      "c.issue": "№ 01 — з 2026",
+      "c.nav.garage": "Гараж", "c.nav.tariff": "Тариф", "c.nav.route": "Маршрут",
+      "c.ride": "Запитати поїздку", "c.reserve": "Запитати мотоцикл",
+      "c.h1": "Класика", "c.sub1": "мотоцикли", "c.sub2": "напрокат, Берлін.",
+      "c.lead": "Три мотоцикли зі справжнім характером: англійський твін, німецький опозитник та італійський V-твін. Жодних скутерів і пластику з прокатних парків. Передаємо особисто, у будь-який місяць року.",
+      "c.garage.cap": "3 мотоцикли · 3 країни · обслуговуємо перед кожною поїздкою",
+      "c.origin.t100": "Англія · кастом", "c.origin.r100rs": "Німеччина · 1984", "c.origin.v7": "Італія · 1971",
+      "c.year": "Рік",
+      "c.tariff.h": "Тариф", "c.tariff.cap": "Будь-який мотоцикл · цілий рік",
+      "c.h24": "24 год", "c.weekendShort": "пт 17:00 – пн 10:00",
+      "c.st.licence": "Права A", "c.st.age": "Від 23 років",
+      "c.route.h": "Маршрут",
+      "c.r1h": "Надішліть заявку", "c.r1p": "Оберіть мотоцикл і дати. Особисто відповімо протягом 48 годин.",
+      "c.r2h": "Подвір’я у Шпандау", "c.r2p": "Передає сам власник: підсос, бензокран і звички, які є в кожного старого мотоцикла.",
+      "c.r3h": "Дорога", "c.r3p": "Озера на Гафелі, бруківка Бранденбурга або нічний Берлін.",
+      "c.slip.h": "Бланк заявки", "c.slip.cap": "Без оплати зараз · № ______",
+      "c.rider": "Ваше ім’я", "c.where": "Куди поїдете?",
+      "c.send": "Надіслати заявку",
+      "c.foot": "Берлін-Шпандау · працюємо цілий рік"
+    },
+    tr: {
+      "c.issue": "No. 01 — 2026’dan beri",
+      "c.nav.garage": "Garaj", "c.nav.tariff": "Tarife", "c.nav.route": "Rota",
+      "c.ride": "Sürüş talep et", "c.reserve": "Motosiklet talep et",
+      "c.h1": "Klasik", "c.sub1": "motosikletler", "c.sub2": "kiralık, Berlin.",
+      "c.lead": "Gerçek karakterli üç motosiklet: bir İngiliz twin, bir Alman boxer, bir İtalyan V. Scooter yok, kiralık filo plastiği yok. Elden teslim, yılın her ayı.",
+      "c.garage.cap": "3 motosiklet · 3 ülke · her sürüşten önce bakım",
+      "c.origin.t100": "İngiltere · özel yapım", "c.origin.r100rs": "Almanya · 1984", "c.origin.v7": "İtalya · 1971",
+      "c.year": "Yıl",
+      "c.tariff.h": "Tarife", "c.tariff.cap": "Her motosiklet · yıl boyu geçerli",
+      "c.h24": "24 sa", "c.weekendShort": "Cum 17:00 – Pzt 10:00",
+      "c.st.licence": "A ehliyeti", "c.st.age": "23 yaş üstü",
+      "c.route.h": "Rota",
+      "c.r1h": "Formu gönderin", "c.r1p": "Motosikleti ve tarihleri seçin. 48 saat içinde kişisel yanıt.",
+      "c.r2h": "Spandau’daki avlu", "c.r2p": "Teslimatı sahibi yapar: jikle, benzin musluğu ve her eski motosikletin huyları.",
+      "c.r3h": "Açık yol", "c.r3p": "Havel gölleri, Brandenburg’un arnavut kaldırımları ya da gece Berlin.",
+      "c.slip.h": "Talep formu", "c.slip.cap": "Şimdi ödeme yok · No. ______",
+      "c.rider": "Sürücünün adı", "c.where": "Nereye gidiyorsunuz?",
+      "c.send": "Formu gönder",
+      "c.foot": "Berlin-Spandau · yıl boyu açık"
+    }
+  };
+  Object.keys(EXTRA_C).forEach(function (l) {
+    Object.keys(EXTRA_C[l]).forEach(function (k) { EXTRA[l][k] = EXTRA_C[l][k]; });
+  });
 
   var all = { de: de, en: en, ru: ru, uk: uk, tr: tr };
   Object.keys(EXTRA).forEach(function (l) {
