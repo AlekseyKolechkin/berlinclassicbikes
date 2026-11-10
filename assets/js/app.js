@@ -6,9 +6,9 @@
   var LANGS = ["de", "en", "ru", "uk", "tr"];
   var HERO_BIKE = "r100rs";
 
-  /* Bikes. Photos live in assets/img/. R100 RS and T100 are Wikimedia Commons example
-     photos (copied by .github/workflows/fetch-images.yml), credited in the footer.
-     The V7 photo is the operator's own (no credit). Own photos: replace file, set credit: null. */
+  /* Bikes. Photos live in assets/img/. V7 and R100 RS photos are the operator's own.
+     T100 is a Wikimedia Commons example photo (copied by .github/workflows/fetch-images.yml),
+     credited in the footer. Own photo: replace file, set credit: null. */
   var BIKES = [
     {
       id: "v7",
@@ -21,7 +21,7 @@
       id: "r100rs",
       year: "1984",
       img: "assets/img/r100rs.jpg",
-      credit: { title: "New-BMW R100RS", author: "JanH015, Cjp24", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:New-BMW_R100RS.jpg" },
+      credit: null,
       specs: { engine: "spec.r100rs.engine", power: "spec.r100rs.power", drive: "spec.shaft", brakes: "spec.r100rs.brakes", top: "spec.r100rs.top", licence: "spec.licA" }
     },
     {

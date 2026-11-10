@@ -1,3 +1,2 @@
 # file name, then source URL (Wikimedia Commons thumbnails, licences credited on the page)
-r100rs.jpg https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/New-BMW_R100RS.jpg/1920px-New-BMW_R100RS.jpg
 t100.jpg https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Triumph_Bonneville_T100_%282011%29.jpg/1280px-Triumph_Bonneville_T100_%282011%29.jpg
