@@ -7,15 +7,13 @@
   var HERO_BIKE = "r100rs";
 
   /* Bikes. Photos are example photos of the same model from Wikimedia Commons,
-     credited in the footer. A GitHub Action (.github/workflows/fetch-images.yml) copies
-     them into assets/img/; until a local copy exists the page falls back to Wikimedia.
-     Own photos later: put them into assets/img/, set img, drop remote + credit. */
+     self-hosted in assets/img/ (copied by .github/workflows/fetch-images.yml) and
+     credited in the footer. Own photos later: replace the file, remove credit. */
   var BIKES = [
     {
       id: "v7",
       year: "1971",
       img: "assets/img/v7.jpg",
-      remote: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Moto_Guzzi_V7_Special_1969_museum.jpg/1280px-Moto_Guzzi_V7_Special_1969_museum.jpg",
       credit: { title: "Moto Guzzi V7 Special 1969 museum", author: "CheminduCret", license: "CC0 1.0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/", source: "https://commons.wikimedia.org/wiki/File:Moto_Guzzi_V7_Special_1969_museum.jpg" },
       specs: { engine: "spec.v7.engine", power: "spec.v7.power", drive: "spec.shaft", brakes: "spec.v7.brakes", top: "spec.v7.top", licence: "spec.licA" }
     },
@@ -23,7 +21,6 @@
       id: "r100rs",
       year: "1984",
       img: "assets/img/r100rs.jpg",
-      remote: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/New-BMW_R100RS.jpg/1920px-New-BMW_R100RS.jpg",
       credit: { title: "New-BMW R100RS", author: "JanH015, Cjp24", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:New-BMW_R100RS.jpg" },
       specs: { engine: "spec.r100rs.engine", power: "spec.r100rs.power", drive: "spec.shaft", brakes: "spec.r100rs.brakes", top: "spec.r100rs.top", licence: "spec.licA" }
     },
@@ -31,7 +28,6 @@
       id: "t100",
       year: "custom",
       img: "assets/img/t100.jpg",
-      remote: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Triumph_Bonneville_T100_%282011%29.jpg/1280px-Triumph_Bonneville_T100_%282011%29.jpg",
       credit: { title: "Triumph Bonneville T100 (2011)", author: "Hogyn Lleol", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Triumph_Bonneville_T100_(2011).jpg" },
       specs: { engine: "spec.t100.engine", power: "spec.t100.power", drive: "spec.chain", brakes: "spec.t100.brakes", top: "spec.t100.top", licence: "spec.licA" }
     }
