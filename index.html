@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berlin Classic Bikes – Klassische Motorräder mieten in Berlin</title>
+<meta name="description" content="Moto Guzzi V7 Special (1971), BMW R100 RS (1984) und Triumph Bonneville T100 Custom mieten in Berlin. Saisonstart April 2027 – jetzt unverbindlich anfragen.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/sofia-sans-extra-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<meta property="og:title" content="Berlin Classic Bikes">
+<meta property="og:description" content="Klassische Motorräder mieten in Berlin. Saison 2027.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body>
+<a class="skip" href="#anfrage" data-i18n="skip">Zur Anfrage springen</a>
+
+<header class="wrap top">
+  <a class="brand" href="./">Berlin <span>Classic</span> Bikes</a>
+  <nav class="langs" aria-label="Sprache / Language">
+    <button type="button" data-lang="de" lang="de">DE</button>
+    <button type="button" data-lang="en" lang="en">EN</button>
+    <button type="button" data-lang="ru" lang="ru">RU</button>
+    <button type="button" data-lang="uk" lang="uk">UA</button>
+    <button type="button" data-lang="tr" lang="tr">TR</button>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="wrap hero">
+    <div>
+      <h1><span data-i18n="hero.l1">Klassische Motorräder mieten.</span> <span class="line2" data-i18n="hero.l2">In Berlin.</span></h1>
+      <p class="lead" data-i18n="hero.lead">Moto Guzzi V7 Special von 1971, BMW R100 RS von 1984 und ein Umbau der Triumph Bonneville T100. Die Vermietung startet im April 2027. Fragen Sie jetzt unverbindlich an, wir melden uns mit freien Terminen.</p>
+      <a class="btn" href="#anfrage" data-track="cta/hero" data-i18n="hero.cta">Maschine anfragen</a>
+    </div>
+    <figure class="hero-photo">
+      <div class="stamp" aria-hidden="true"><b data-i18n="stamp.big">Saison 2027</b><small data-i18n="stamp.small">ab April</small></div>
+      <img id="hero-img" hidden alt="" width="1200" height="900" fetchpriority="high" referrerpolicy="no-referrer">
+      <figcaption data-i18n="hero.caption">Beispielfoto: BMW R100 RS. Bildnachweis unten.</figcaption>
+    </figure>
+  </div>
+
+  <section id="maschinen" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="bikes.h">Die Maschinen</h2>
+        <p data-i18n="bikes.intro">Für alle drei brauchen Sie den Führerschein Klasse A. Die Fotos zeigen Beispielmaschinen desselben Modells, nicht unsere.</p>
+      </div>
+      <div class="bikes" id="bikes"><!-- filled by app.js --></div>
+    </div>
+  </section>
+
+  <section id="preise" class="band" data-view="prices">
+    <div class="wrap prices">
+      <div>
+        <h2 data-i18n="prices.h">Preise</h2>
+        <table class="tariff">
+          <tbody>
+            <tr><th><span data-i18n="prices.first">Erster Tag</span><small data-i18n="prices.firstNote">24 Stunden, Abholung ab 9 Uhr</small></th><td>129 €</td></tr>
+            <tr><th><span data-i18n="prices.next">Jeder weitere Tag</span><small data-i18n="prices.nextNote">ab dem zweiten Tag</small></th><td>89 €</td></tr>
+            <tr><th><span data-i18n="prices.weekend">Wochenende</span><small data-i18n="prices.weekendNote">Freitag 17 Uhr bis Montag 10 Uhr</small></th><td>179 €</td></tr>
+          </tbody>
+        </table>
+        <p class="example" data-i18n="prices.example">Beispiel: drei Tage kosten 129 + 89 + 89 = 307 €. Gleicher Preis für alle drei Maschinen.</p>
+      </div>
+      <div>
+        <h2 data-i18n="terms.h">Bedingungen</h2>
+        <ul class="terms">
+          <li data-i18n="terms.licence">Führerschein Klasse A</li>
+          <li data-i18n="terms.age">Mindestalter 23 Jahre</li>
+          <li data-i18n="terms.deposit">Kaution bei Übergabe</li>
+          <li data-i18n="terms.pickup">Übergabe und Rückgabe in Berlin-Spandau</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="anfrage" class="band" data-view="form">
+    <div class="wrap form-grid">
+      <div class="sec-head">
+        <h2 data-i18n="form.h">Unverbindlich anfragen</h2>
+        <p data-i18n="form.intro">Noch wird nichts gebucht und nichts bezahlt. Wir sammeln Anfragen für die Saison 2027 und melden uns per E-Mail mit freien Terminen.</p>
+      </div>
+
+      <div id="form-box">
+        <form id="lead-form" novalidate>
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div>
+            <label for="f-name" data-i18n="form.name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="f-email" data-i18n="form.email">E-Mail</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="f-phone"><span data-i18n="form.phone">Telefon</span> <span class="opt" data-i18n="form.optional">(optional)</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div>
+            <label for="f-bike" data-i18n="form.bike">Maschine</label>
+            <select id="f-bike" name="bike" required>
+              <option value="v7" data-i18n="bike.v7.name">Moto Guzzi V7 Special</option>
+              <option value="r100rs" data-i18n="bike.r100rs.name">BMW R100 RS</option>
+              <option value="t100" data-i18n="bike.t100.name">Triumph Bonneville T100 Custom</option>
+              <option value="any" data-i18n="form.anyBike">Noch unentschieden</option>
+            </select>
+          </div>
+
+          <fieldset class="full">
+            <legend data-i18n="form.duration">Mietdauer</legend>
+            <div class="choices">
+              <label><input type="radio" name="duration" value="day" checked> <span data-i18n="form.dDay">Ein Tag</span></label>
+              <label><input type="radio" name="duration" value="days"> <span data-i18n="form.dDays">Mehrere Tage</span></label>
+              <label><input type="radio" name="duration" value="weekend"> <span data-i18n="form.dWeekend">Wochenende</span></label>
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="f-month" data-i18n="form.when">Wunschmonat</label>
+            <select id="f-month" name="month">
+              <option value="2027-04">04/2027</option>
+              <option value="2027-05">05/2027</option>
+              <option value="2027-06" selected>06/2027</option>
+              <option value="2027-07">07/2027</option>
+              <option value="2027-08">08/2027</option>
+              <option value="2027-09">09/2027</option>
+              <option value="2027-10">10/2027</option>
+              <option value="open" data-i18n="form.whenOpen">Noch offen</option>
+            </select>
+          </div>
+          <div>
+            <label for="f-days"><span data-i18n="form.days">Wie viele Tage?</span> <span class="opt" data-i18n="form.optional">(optional)</span></label>
+            <input id="f-days" name="days" type="text" inputmode="numeric" pattern="[0-9]*">
+          </div>
+
+          <div class="full">
+            <label for="f-msg"><span data-i18n="form.msg">Nachricht</span> <span class="opt" data-i18n="form.optional">(optional)</span></label>
+            <textarea id="f-msg" name="message" data-i18n-placeholder="form.msgPh" placeholder="Zum Beispiel: Fotoshooting, Tour nach Potsdam, Erfahrung mit alten Maschinen"></textarea>
+          </div>
+
+          <label class="consent full">
+            <input type="checkbox" name="consent" id="f-consent" required>
+            <span data-i18n-html="form.consent">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen. Meine Angaben dürfen zur Beantwortung dieser Anfrage verarbeitet werden.</span>
+          </label>
+
+          <div class="full">
+            <button class="btn" type="submit" id="f-submit" data-i18n="form.submit">Anfrage senden</button>
+          </div>
+          <p class="status full" id="f-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <a href="impressum.html" data-i18n="foot.imprint">Impressum</a>
+      <a href="datenschutz.html" data-i18n="foot.privacy">Datenschutz</a>
+      <span>© 2026 Berlin Classic Bikes</span>
+    </div>
+    <div class="credits" id="bildnachweise">
+      <p><strong data-i18n="foot.credits">Bildnachweise</strong></p>
+      <div id="credits"></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+<script data-goatcounter="https://berlinclassicbikes.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
