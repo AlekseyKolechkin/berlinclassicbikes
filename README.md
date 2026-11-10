@@ -1,6 +1,6 @@
 # Berlin Classic Bikes
 
-One-page demand test for a classic motorcycle rental in Berlin (season 2027).
+One-page demand test for a classic motorcycle rental in Berlin (all year round).
 Static site on GitHub Pages, domain `berlinclassicbikes.de`.
 
 - `index.html` – the page (DE/EN/RU/UA/TR, texts in `assets/js/i18n.js`)

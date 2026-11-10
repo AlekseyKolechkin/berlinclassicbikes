@@ -101,6 +101,7 @@
     $all("[data-i18n-placeholder]").forEach(function (el) { el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder"))); });
     $all(".langs button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang)); });
     renderBikes();
+    renderMonths();
     renderHero();
     renderCredits();
   }
@@ -129,6 +130,29 @@
           '<a class="btn" href="#anfrage" data-pick="' + b.id + '">' + esc(t("bike.cta")) + "</a>" +
         "</div></article>";
     }).join("");
+  }
+
+  /* next 12 months, labelled in the page language; "open" stays last */
+  function renderMonths() {
+    var sel = $("#f-month");
+    if (!sel) return;
+    var keep = sel.getAttribute("data-ready") ? sel.value : "";
+    sel.setAttribute("data-ready", "1");
+    var now = new Date();
+    var opts = [];
+    for (var i = 0; i < 12; i++) {
+      var d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+      var value = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
+      var label;
+      try { label = d.toLocaleDateString(lang, { month: "long", year: "numeric" }); }
+      catch (e) { label = value; }
+      label = label.charAt(0).toUpperCase() + label.slice(1);
+      opts.push('<option value="' + value + '">' + esc(label) + "</option>");
+    }
+    opts.push('<option value="open">' + esc(t("form.whenOpen")) + "</option>");
+    sel.innerHTML = opts.join("");
+    if (keep && sel.querySelector('option[value="' + keep + '"]')) sel.value = keep;
+    else sel.selectedIndex = 1; /* default: next month */
   }
 
   function renderHero() {
