@@ -6,15 +6,15 @@
   var LANGS = ["de", "en", "ru", "uk", "tr"];
   var HERO_BIKE = "r100rs";
 
-  /* Bikes. Photos are example photos of the same model from Wikimedia Commons,
-     self-hosted in assets/img/ (copied by .github/workflows/fetch-images.yml) and
-     credited in the footer. Own photos later: replace the file, remove credit. */
+  /* Bikes. Photos live in assets/img/. R100 RS and T100 are Wikimedia Commons example
+     photos (copied by .github/workflows/fetch-images.yml), credited in the footer.
+     The V7 photo is the operator's own (no credit). Own photos: replace file, set credit: null. */
   var BIKES = [
     {
       id: "v7",
       year: "1971",
       img: "assets/img/v7.jpg",
-      credit: { title: "Moto Guzzi V7 Special 1969 museum", author: "CheminduCret", license: "CC0 1.0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/", source: "https://commons.wikimedia.org/wiki/File:Moto_Guzzi_V7_Special_1969_museum.jpg" },
+      credit: null,
       specs: { engine: "spec.v7.engine", power: "spec.v7.power", drive: "spec.shaft", brakes: "spec.v7.brakes", top: "spec.v7.top", licence: "spec.licA" }
     },
     {

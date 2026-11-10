@@ -21,6 +21,7 @@ jobs:
           mkdir -p assets/img
           grep -v '^#' assets/img/sources.txt | while read -r name url; do
             [ -z "$name" ] && continue
+            [ -f "assets/img/$name" ] && { echo "keep $name"; continue; }
             curl -fsSL --retry 3 \
               -A "BerlinClassicBikes/1.0 (https://berlinclassicbikes.de; kolechkinaleksei@gmail.com)" \
               "$url" -o "assets/img/$name"
